@@ -234,7 +234,7 @@ const Header = () => {
               </span>
             </Link>
           {isMenuOpen && (
-            <div className="lg:hidden bg-white absolute left-0 top-[5.5rem] w-full h-full z-50  ">
+            <div className="hidden bg-white absolute left-0 top-[5.5rem] w-full h-full z-50  ">
               <div className="container mx-auto px-4 py-2">
                 <nav className="flex flex-col space-y-4">
                   <div

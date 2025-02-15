@@ -18,29 +18,48 @@ const Footer = () => {
           </div>
 
           {/* Categories */}
-          <div className=''>
-            <h3 className="text-lg font-semibold  mb-4 uppercase">Corporate Head Offices</h3>
-            <div className='flex flex-row gap-3 items-center justify-center '>
-              <FaLocationPin className='w-5 h-5' />
-              <span className='text-sm'>38 Eric Moore Road, Surelere, Lagos, Nigeria</span>
-            </div>
-            <div className='flex flex-row gap-3 items-center justify-center '>
-              <FaLocationPin className='w-5 h-5' />
-              <span className='text-sm'>38 Eric Moore Road, Surelere, Lagos, Nigeria</span>
-            </div>
-            <div className='flex flex-row gap-3 items-center justify-center '>
-              <FaPhone className='w-5 h-5' />
-              <span className='text-sm'>+234 8095 9990 00</span>
-            </div>
-            <div className='flex flex-row gap-3 items-center justify-center '>
-              <FaTelegramPlane className='w-5 h-5' />
-              <span className='text-sm'>lush@tolaram.com</span>
-            </div>
+          <div>
+          <h3 className="text-lg font-semibold  mb-4 uppercase">Corporate Head Offices</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2  "
+                >
+                    <FaLocationPin className='w-5 h-5' />
+                    <span >38 Eric Moore Road, Surelere, Lagos, Nigeria</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                to="tel:+2348095999000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 "
+                >
+                  <FaPhone className='w-5 h-5' />
+                  <span >+234 8095 9990 00</span>
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center gap-2 ">
+                <FaTelegramPlane className='w-5 h-5' />
+                  <a 
+                    href="mailto:lush@tolaram.com"
+                    className="text-white hover:underline"
+                  >
+                    lush@tolaram.com
+                  </a>
+                </div>
+              </li>
+            </ul>
           </div>
 
-          {/* Useful Links */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold  mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold  mb-4 uppercase">Quick Links</h3>
             <ul className="space-y-3">
               {[
                 { name: 'Braids', path: routePath.ABOUT },
@@ -66,7 +85,7 @@ const Footer = () => {
 
           {/* Contact Us */}
           <div>
-            <h3 className="text-lg font-semibold  mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold  mb-4 uppercase">Contact Us</h3>
             <ul className="space-y-4">
               <li>
                 <Link

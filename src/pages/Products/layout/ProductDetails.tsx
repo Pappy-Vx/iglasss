@@ -61,7 +61,7 @@ const ProductDetails = () => {
           <span className="mx-2">/</span>
           <span className="text-gray-500">{product.category}</span>
           <span className="mx-2">/</span>
-          <span className="text-[#330066] lowercase">{product.name}</span>
+          <span className="text-pink-600 lowercase">{product.name}</span>
         </nav>
         <div className="md:w-1/2">
           <div className="bg-gray-50 rounded-lg p-4">
@@ -82,14 +82,14 @@ const ProductDetails = () => {
             <span className="mx-2">/</span>
             <span className="text-gray-500">{product.category}</span>
             <span className="mx-2">/</span>
-            <span className="text-[#330066] lowercase">{product.name}</span>
+            <span className="text-pink-600 lowercase">{product.name}</span>
           </nav>
 
           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
 
           <div className="flex items-center mb-4">
             {[...Array(5)].map((_, index) => (
-              <span key={index} className="text-[#330066] text-xl">
+              <span key={index} className="text-pink-600 text-xl">
                 ★
               </span>
             ))}
@@ -97,7 +97,7 @@ const ProductDetails = () => {
           </div>
 
           <div className="mb-6">
-            <div className="text-3xl font-bold text-[#330066]">
+            <div className="text-3xl font-bold text-pink-600">
               ₦{product.new_price.toLocaleString()}
               {product.old_price > product.new_price && (
                 <span className="ml-2 text-lg text-gray-500 line-through">
@@ -120,9 +120,9 @@ const ProductDetails = () => {
                   onClick={() => setSelectedSize(size)}
                   className={`w-12 h-12 rounded-full flex items-center justify-center border ${
                     selectedSize === size
-                      ? "border-[#330066] text-[#330066]"
+                      ? "border-pink-600 text-pink-600"
                       : "border-gray-300 text-gray-600"
-                  } hover:border-[#330066] transition-colors`}
+                  } hover:border-pink-600 transition-colors`}
                 >
                   {size}
                 </button>
@@ -136,18 +136,18 @@ const ProductDetails = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-                className="p-2 rounded-full border border-gray-300 hover:border-[#330066]"
+                className="p-2 rounded-full border border-gray-300 hover:border-pink-600"
               >
-                <FiMinus className="text-[#330066]" />
+                <FiMinus className="text-pink-600" />
               </button>
-              <span className="text-xl font-medium w-8 text-center text-[#330066]">
+              <span className="text-xl font-medium w-8 text-center text-pink-600">
                 {quantity}
               </span>
               <button
                 onClick={() => setQuantity((prev) => prev + 1)}
-                className="p-2 rounded-full border border-gray-300 hover:border-[#330066]"
+                className="p-2 rounded-full border border-gray-300 hover:border-pink-600"
               >
-                <FiPlus className="text-[#330066]" />
+                <FiPlus className="text-pink-600" />
               </button>
             </div>
           </div>
@@ -156,11 +156,11 @@ const ProductDetails = () => {
           <div className="flex gap-4">
             <button
               onClick={handleAddToCart}
-              className="flex-1 bg-[#330066] text-white py-3 px-6 rounded-full hover:bg-[#2a0052] transition-colors cursor-pointer"
+              className="flex-1 bg-pink-600 text-white py-3 px-6 rounded-full hover:bg-[#2a0052] transition-colors cursor-pointer"
             >
               Add to Cart
             </button>
-            {/* <button className="flex-1 border-2 border-[#330066] text-[#330066] py-3 px-6 rounded-full hover:bg-[#330066] hover:text-white transition-colors cursor-pointer">
+            {/* <button className="flex-1 border-2 border-pink-600 text-pink-600 py-3 px-6 rounded-full hover:bg-pink-600 hover:text-white transition-colors cursor-pointer">
               Buy Now
             </button> */}
           </div>
@@ -168,7 +168,7 @@ const ProductDetails = () => {
           {/* Delivery Info */}
           <div className="mt-8 space-y-4">
             <div className="flex items-start gap-2">
-              <span className="text-[#330066]">🚚</span>
+              <span className="text-pink-600">🚚</span>
               <div>
                 <h4 className="font-semibold">Free Delivery</h4>
                 <p className="text-sm text-gray-600">
@@ -177,7 +177,7 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-[#330066]">↩️</span>
+              <span className="text-pink-600">↩️</span>
               <div>
                 <h4 className="font-semibold">Return Delivery</h4>
                 <p className="text-sm text-gray-600">

@@ -1,0 +1,205 @@
+@import "tailwindcss";
+@theme {
+  
+    --color-primary: #330066;
+    --color-secondary: #f9f9f9;
+    --color-text: #000000;
+    --color-accent: #ffffff;
+    --container-maxWidth: 80rem;
+    --breakpoint-navMd: 950px;
+
+ 
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+ background: #FAF9F6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --swiper-pagination-bullet-inactive-opacity: 1; /* Ensure inactive bullets are fully visible */
+  --swiper-pagination-bullet-size: 14px; /* Bullet size */
+  --swiper-pagination-bullet-inactive-color: white; /* Inner color for inactive bullets */
+  --swiper-pagination-bullet-active-color: #ff4081; /* Active bullet color */ /* Set your desired color for active bullet */
+}
+
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+.NavigationMenuRoot {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  color: #000;
+  align-items: center;
+  
+}
+
+.NavigationMenuList {
+  display: flex;
+  list-style: none;
+}
+
+.NavigationMenuItem {
+  margin-right: 10px;
+  list-style: none;
+}
+
+.NavigationMenuTrigger {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.CaretDown {
+  position: relative;
+  top: 1px;
+  transition: transform 250ms ease;
+}
+[data-state="open"] > .CaretDown {
+  transform: rotate(-180deg);
+}
+
+.NavigationMenuContent {
+  background-color: #ffffff;
+  box-shadow: rgba(211, 5, 174, 0.25) 0px 50px 100px -20px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; 
+  border-radius: 10px;
+  width: 14rem;
+  color: #000;
+  padding:  20px 40px;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 2.5rem;
+}
+
+.NavigationMenuLink {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.NavigationMenuIndicator {
+  position: absolute;
+  background-color: red;
+  height: 4px;
+  width: 4px;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-img {
+  width: full;
+  height: full ;
+  object-fit: cover;
+}
+
+/* Custom Pagination Styling */
+/* Custom Pagination */
+.swiper-pagination {
+  bottom: 15px !important; /* Adjust to match reference */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-bullet {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ff4081; /* Pink border */
+  background: white; /* Inner white */
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+/* Active Bullet */
+.swiper-pagination-bullet-active.custom-bullet {
+  width: 14px;
+  height: 14px;
+  background: #ff4081; /* Pink fill */
+  border: 3px solid white; /* White border */
+  box-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--swiper-pagination-bullet-inactive-color);
+  opacity: var(--swiper-pagination-bullet-inactive-opacity);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--swiper-pagination-color);
+}

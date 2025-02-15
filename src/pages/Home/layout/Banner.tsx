@@ -1,11 +1,12 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Pagination, Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
- 
-import { Pagination, Autoplay } from "swiper/modules";
+
+// import Swiper styles
+
+
 import banner1 from "../../../assets/images/home.png"; // Update with correct paths
 
 

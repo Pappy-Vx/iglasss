@@ -14,7 +14,7 @@ import banner1 from "../../../assets/images/home.png"; // Update with correct pa
 const Banner = () => {
   const pagination = {
     clickable: true,
-    renderBullet: function (index: number, className: string) {
+    renderBullet: function (_: number, className: string) {
       return `<span class="${className} custom-bullet"></span>`;
     },
   };

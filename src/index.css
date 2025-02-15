@@ -23,7 +23,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --swiper-pagination-bullet-inactive-opacity: 1; /* Ensure inactive bullets are fully visible */
-  --swiper-pagination-bullet-size: 14px; /* Bullet size */
+  --swiper-pagination-bullet-size: 65px; /* Bullet size */
   --swiper-pagination-bullet-inactive-color: white; /* Inner color for inactive bullets */
   --swiper-pagination-bullet-active-color: #ff4081; /* Active bullet color */ /* Set your desired color for active bullet */
 }

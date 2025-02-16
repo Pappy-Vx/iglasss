@@ -19,7 +19,7 @@ const hairFilters: HairFilter[] = [
   {
     id: 'short-bob',
     name: 'Short Bob',
-    modelUrl: "../../public/models/short-bob.glb",
+    modelUrl: "https://lushhair.vercel.app/models/short-bob.glb",
     thumbnail: '/thumbnails/short-bob.png',
     scale: new THREE.Vector3(10, 10, 10),
     position: new THREE.Vector3(0, -0.3, 0),

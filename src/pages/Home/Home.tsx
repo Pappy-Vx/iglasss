@@ -5,6 +5,7 @@ import RecentlyViewed from './layout/RecentlyViewed';
 import Header from '../../components/Header';
 import HomeFooter from './layout/HomeFooter';
 import Footer from '../../components/Footer';
+import Selfie from './layout/Selfie';
 
 const Home = () => {
   return (
@@ -24,6 +25,8 @@ const Home = () => {
         {/* Featured Products Section */}
         <FeaturedProducts />
 
+        {/* Recently Viewed Section */}
+        <Selfie />
 
         {/* Recently Viewed Section */}
         <RecentlyViewed />

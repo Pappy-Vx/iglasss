@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { FaceMesh } from '@mediapipe/face_mesh';
+import { FaceMesh, Results } from '@mediapipe/face_mesh';
 import { Camera } from '@mediapipe/camera_utils';
 import './HairTryOn.css';
 
@@ -14,10 +14,6 @@ interface HairFilter {
   position?: THREE.Vector3;
   rotation?: THREE.Euler;
 }
-type FaceMeshResults = {
-  multiFaceLandmarks?: { x: number; y: number; z: number }[][];
-};
-
 
 const hairFilters: HairFilter[] = [
   {
@@ -167,7 +163,7 @@ const HairTryOn: React.FC = () => {
     );
   };
 
-  const onResults = (results: FaceMeshResults) => {
+  const onResults = (results: Results) => {
     if (!results.multiFaceLandmarks || !currentModelRef.current) return;
 
     const landmarks = results.multiFaceLandmarks[0];

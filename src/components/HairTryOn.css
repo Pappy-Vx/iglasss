@@ -1,0 +1,70 @@
+.hair-try-on {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.camera-view {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4/3;
+  background-color: pink;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.output-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.filter-selector {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 640px;
+}
+
+.filter-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.filter-button.active {
+  border-color: #007bff;
+}
+
+.filter-button img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.filter-button span {
+  font-size: 14px;
+  color: #333;
+}

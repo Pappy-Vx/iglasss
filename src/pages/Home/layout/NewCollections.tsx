@@ -12,7 +12,7 @@ const NewCollections = () => {
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-       <div className="overflow-hidden w-full h-[800px] bg-[#FF69B4] rounded-md">
+       <div className="overflow-hidden w-full h-[500px] lg:h-[800px] bg-[#FF69B4] rounded-md">
         <img src={collect1} alt="" />
         <h3 className='text-3xl font-bold text-[#330011] ml-5 mt-8'>Hair Extension</h3>
         <ul className='text-[#330011] ml-10 mr-4 mt-6 list-disc'>
@@ -22,7 +22,7 @@ const NewCollections = () => {
         <button className='bg-[#330011] hover:bg-white hover:text-[#330011] text-white px-4 py-2 rounded-full text-2xl w-76 h-14 mt-18 text-bold cursor-pointer'>Get yours here</button>
         </div>
        </div>
-       <div className="overflow-hidden w-full h-[800px] bg-[#FFB6C1] rounded-md">
+       <div className="overflow-hidden w-full h-[500px] lg:h-[800px] bg-[#FFB6C1] rounded-md">
         <img src={collect2} alt="" />
         <h3 className='text-3xl font-bold text-[#330011] ml-5 mt-8'>Hair Care</h3>
         <ul className='text-[#330011] ml-10 mr-4 mt-6 list-disc'>

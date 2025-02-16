@@ -14,4 +14,5 @@ export const routePath = {
     SHOP: "/shop",
     SUCCESS: "/success",
     New: "/new",
+    HairTryOn: "/hair-try-on",
 };

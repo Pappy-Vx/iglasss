@@ -10,6 +10,7 @@ import Contact from "../pages/Contact/Contact";
 import Shop from "../pages/Shop/Shop";
 import Success from "../pages/Checkout/Success";
 import New from "../pages/New/New";
+import HairTryOn from "../components/HairTryOn";
 
 
 export {
@@ -24,5 +25,6 @@ export {
     Contact,
     Shop,
     Success,
-    New
+    New,
+    HairTryOn,
 }

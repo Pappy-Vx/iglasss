@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <Provider store={store}>
-      <div className='mx-auto bg-white max-w-maxWidth'>
+      <div className='mx-auto bg-white '>
         <RouterProvider router={router} />
         <ToastContainer />
       </div>

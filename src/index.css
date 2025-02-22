@@ -9,6 +9,7 @@
     --color-accent: #ffffff;
     --container-maxWidth: 80rem;
     --breakpoint-navMd: 950px;
+    --font-nexabold: 'nexabold', sans-serif; 
 
  
 }
@@ -28,6 +29,16 @@
   --swiper-pagination-bullet-active-color: #ff4081; /* Active bullet color */ /* Set your desired color for active bullet */
 }
 
+
+@font-face {
+  font-family: 'nexabold';
+  src: url('./assets/fonts/Nexa-Heavy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'nexabold', sans-serif;
+}
 /* a {
   font-weight: 500;
   color: #646cff;

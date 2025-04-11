@@ -3,9 +3,9 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { FaceMesh, Results } from '@mediapipe/face_mesh';
 import { Camera } from '@mediapipe/camera_utils';
-import './HairTryOn.css';
+import './HairTryOn.css'; // rename CSS file accordingly
 
-interface HairFilter {
+interface GlassesFilter {
   id: string;
   name: string;
   modelUrl: string;
@@ -15,24 +15,24 @@ interface HairFilter {
   rotation?: THREE.Euler;
 }
 
-const hairFilters: HairFilter[] = [
+const glassesFilters: GlassesFilter[] = [
   {
-    id: 'short-bob',
-    name: 'Short Bob',
-    modelUrl: "https://lushhair.vercel.app/models/short-bob.glb",
-    thumbnail: '/thumbnails/short-bob.png',
-    scale: new THREE.Vector3(10, 10, 10),
-    position: new THREE.Vector3(0, -0.3, 0),
-    rotation: new THREE.Euler(0, 0, 0)
+    id: 'basic-glasses',
+    name: 'Basic Glasses',
+    modelUrl: '/models/glasses1.glb',
+    thumbnail: '/thumbnails/glasses-basic.png',
+    scale: new THREE.Vector3(1, 1, 1),  // adjusted scale
+    position: new THREE.Vector3(0, 0, 0),
+    rotation: new THREE.Euler(0, 0, 0),
   }
+  
 ];
 
 const HairTryOn: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [selectedFilter, setSelectedFilter] = useState<string>('long-wavy');
-  
-  // Three.js references
+  const [selectedFilter, setSelectedFilter] = useState<string>('basic-glasses');
+
   const sceneRef = useRef<THREE.Scene>();
   const cameraRef = useRef<THREE.PerspectiveCamera>();
   const rendererRef = useRef<THREE.WebGLRenderer>();
@@ -41,21 +41,17 @@ const HairTryOn: React.FC = () => {
   useEffect(() => {
     if (!videoRef.current || !canvasRef.current) return;
 
-    // Initialize Three.js
     initThreeJS();
 
-    // Initialize FaceMesh
     const faceMesh = new FaceMesh({
-      locateFile: (file) => {
-        return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`;
-      }
+      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
     });
 
     faceMesh.setOptions({
       maxNumFaces: 1,
       refineLandmarks: true,
       minDetectionConfidence: 0.5,
-      minTrackingConfidence: 0.5
+      minTrackingConfidence: 0.5,
     });
 
     faceMesh.onResults(onResults);
@@ -63,61 +59,46 @@ const HairTryOn: React.FC = () => {
     if (videoRef.current) {
       const camera = new Camera(videoRef.current, {
         onFrame: async () => {
-          if (videoRef.current) {
-            await faceMesh.send({ image: videoRef.current });
-          }
+          await faceMesh.send({ image: videoRef.current! });
         },
         width: 640,
-        height: 480
+        height: 480,
       });
       camera.start();
     }
 
     return () => {
       faceMesh.close();
-      if (rendererRef.current) {
-        rendererRef.current.dispose();
-      }
+      rendererRef.current?.dispose();
     };
   }, []);
 
   useEffect(() => {
-    if (selectedFilter && sceneRef.current) {
-      loadHairModel();
-    }
+    if (selectedFilter && sceneRef.current) loadGlassesModel();
   }, [selectedFilter]);
 
   const initThreeJS = () => {
-    if (!canvasRef.current) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    // Create scene
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
-    // Create camera
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 2;
     cameraRef.current = camera;
 
-    // Create renderer
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvasRef.current,
-      alpha: true,
-      antialias: true
-    });
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setSize(640, 480);
     renderer.setPixelRatio(window.devicePixelRatio);
     rendererRef.current = renderer;
 
-    // Add lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
-
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight.position.set(0, 1, 1);
     scene.add(directionalLight);
 
-    // Start animation loop
     animate();
   };
 
@@ -128,38 +109,31 @@ const HairTryOn: React.FC = () => {
     rendererRef.current.render(sceneRef.current, cameraRef.current);
   };
 
-  const loadHairModel = () => {
+  const loadGlassesModel = () => {
     if (!sceneRef.current) return;
 
-    const filter = hairFilters.find(f => f.id === selectedFilter);
+    const filter = glassesFilters.find(f => f.id === selectedFilter);
     if (!filter) return;
 
-    // Remove existing model if any
     if (currentModelRef.current) {
       sceneRef.current.remove(currentModelRef.current);
     }
 
-    // Load new model
     const loader = new GLTFLoader();
     loader.load(
       filter.modelUrl,
       (gltf) => {
         const model = gltf.scene;
-        
-        // Apply filter transformations
-        if (filter.scale) model.scale.copy(filter.scale);
-        if (filter.position) model.position.copy(filter.position);
-        if (filter.rotation) model.rotation.copy(filter.rotation);
+
+        model.scale.copy(filter.scale || new THREE.Vector3(1, 1, 1));
+        model.position.copy(filter.position || new THREE.Vector3());
+        model.rotation.copy(filter.rotation || new THREE.Euler());
 
         currentModelRef.current = model;
         sceneRef.current?.add(model);
       },
-      (xhr) => {
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-      },
-      (error) => {
-        console.error('Error loading model:', error);
-      }
+      (xhr) => console.log((xhr.loaded / xhr.total) * 100 + '% loaded'),
+      (error) => console.error('Error loading model:', error)
     );
   };
 
@@ -168,48 +142,43 @@ const HairTryOn: React.FC = () => {
 
     const landmarks = results.multiFaceLandmarks[0];
     if (landmarks) {
-      // Get key face landmarks for positioning
-      const nose = landmarks[4];
-      const leftEar = landmarks[234];
-      const rightEar = landmarks[454];
+      const leftEye = landmarks[33];  // outer corner of left eye
+      const rightEye = landmarks[263]; // outer corner of right eye
+      const center = {
+        x: (leftEye.x + rightEye.x) / 2,
+        y: (leftEye.y + rightEye.y) / 2,
+        z: (leftEye.z + rightEye.z) / 2,
+      };
 
-      // Calculate face center and orientation
-      const centerX = (leftEar.x + rightEar.x) / 2;
-      const centerY = nose.y;
-      const centerZ = nose.z;
+      currentModelRef.current.position.set(
+        (center.x - 0.5) * 2,
+        -(center.y - 0.5) * 2 + 0.2,  // this 0.2 lifts the model up slightly
+        -center.z
+      );
 
-      // Update model position
-      if (currentModelRef.current) {
-        // Convert MediaPipe coordinates to Three.js coordinates
-        currentModelRef.current.position.x = (centerX - 0.5) * 2;
-        currentModelRef.current.position.y = -(centerY - 0.5) * 2;
-        currentModelRef.current.position.z = -centerZ;
-
-        // Calculate head rotation
-        const angle = Math.atan2(rightEar.x - leftEar.x, rightEar.y - leftEar.y);
-        currentModelRef.current.rotation.y = angle;
-      }
+      const angle = Math.atan2(rightEye.y - leftEye.y, rightEye.x - leftEye.x);
+      currentModelRef.current.rotation.y = -angle;
     }
   };
 
   return (
     <div className="hair-try-on">
-      <div className="camera-view">
-        <video
-          ref={videoRef}
-          style={{ display: 'block', width: '100%', height: '100%' }}
-          playsInline
-          autoPlay
-        />
-        <canvas
-          ref={canvasRef}
-          className="output-canvas"
-          style={{ width: '100%', height: '100%' }}
-        />
-      </div>
-      
+    <div className="camera-view">
+      <video
+        ref={videoRef}
+        style={{ display: 'block', width: '100%', height: '100%' }}
+        playsInline
+        autoPlay
+      />
+      <canvas
+        ref={canvasRef}
+        className="output-canvas"
+        style={{ width: '100%', height: '100%' }}
+      />
+    </div>
+
       <div className="filter-selector">
-        {hairFilters.map((filter) => (
+        {glassesFilters.map((filter) => (
           <button
             key={filter.id}
             className={`filter-button ${selectedFilter === filter.id ? 'active' : ''}`}

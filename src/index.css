@@ -3,7 +3,7 @@
 @import 'swiper/css/pagination';
 @theme {
   
-    --color-primary: #330066;
+    --color-primary: #0A1D37;
     --color-secondary: #f9f9f9;
     --color-text: #000000;
     --color-accent: #ffffff;
@@ -26,7 +26,7 @@
   --swiper-pagination-bullet-inactive-opacity: 1; /* Ensure inactive bullets are fully visible */
   --swiper-pagination-bullet-size: 65px; /* Bullet size */
   --swiper-pagination-bullet-inactive-color: white; /* Inner color for inactive bullets */
-  --swiper-pagination-bullet-active-color: #ff4081; /* Active bullet color */ /* Set your desired color for active bullet */
+  --swiper-pagination-bullet-active-color: #0A1D37; /* Active bullet color */ /* Set your desired color for active bullet */
 }
 
 
@@ -191,7 +191,7 @@ button:focus-visible {
 .custom-bullet {
   width: 10px;
   height: 10px;
-  border: 2px solid #ff4081; /* Pink border */
+  border: 2px solid #0A1D37; /* Pink border */
   background: white; /* Inner white */
   border-radius: 50%;
   display: inline-block;
@@ -203,7 +203,7 @@ button:focus-visible {
 .swiper-pagination-bullet-active.custom-bullet {
   width: 14px;
   height: 14px;
-  background: #ff4081; /* Pink fill */
+  background: #0A1D37; /* Pink fill */
   border: 3px solid white; /* White border */
   box-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
 }

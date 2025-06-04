@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routePath } from "../utils/routePath";
-import {Home, Products, Cart, About, Checkout, Policy, Login, Register, Contact, Shop, Success, New, GlassTryOn} from "./routeImport";
+import {Home, Products, Cart, About, Checkout, Policy, Login, Register, Contact, Shop, Success, New, GlassTryOn,} from "./routeImport";
 import Loader from "../features/Loader";
 
 export const router = createBrowserRouter([
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
     },
     {
         Component: Products,
-        path: routePath.PRODUCTS,
+        path: routePath.PRODUCT_DETAILS,
   
     },
     {

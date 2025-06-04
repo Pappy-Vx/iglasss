@@ -25,7 +25,7 @@ const Home = () => {
         {/* Featured Products Section */}
         <FeaturedProducts />
 
-        {/* Recently Viewed Section */}
+        {/*Selfie Viewed Section */}
         <Selfie />
 
         {/* Recently Viewed Section */}

@@ -41,7 +41,7 @@ const Banner = () => {
       </SwiperSlide>
     </Swiper>
     <p className="md:w-[50%] w-full leading-8 md:text-2xl text-xl md:ml-5 ml-0 mt-10" style={{fontFamily: 'NexaBold, sans-serif'}}>
-    Welcome to Lush Hair, where it's all about <strong>YOU!</strong>  Your hair journey starts here, so keep exploring and see what we've got for every vibe and version of you.
+    Welcome to Iglasss where style meets vision! Your perfect frames await, so dive in and discover eyewear that’s made to match your mood, your look, and your lifestyle.
     </p>
   </div>
   );

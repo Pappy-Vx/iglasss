@@ -49,22 +49,22 @@ const CartItem = ({ id, name, price, imageUrl, quantity, size }: CartItemProps) 
           <div className="flex items-center gap-4">
             <button
               onClick={() => handleQuantityChange(quantity - 1)}
-              className="p-1 rounded-full border border-gray-300 hover:border-pink-600"
+              className="p-1 rounded-full border border-gray-300 hover:border-[#2F465E]"
             >
-              <FiMinus className="text-pink-600" />
+              <FiMinus className="text-[#2F465E]" />
             </button>
-            <span className="text-lg font-medium w-8 text-center text-pink-600">
+            <span className="text-lg font-medium w-8 text-center text-[#2F465E]">
               {quantity}
             </span>
             <button
               onClick={() => handleQuantityChange(quantity + 1)}
-              className="p-1 rounded-full border border-gray-300 hover:border-pink-600"
+              className="p-1 rounded-full border border-gray-300 hover:border-[#2F465E]"
             >
-              <FiPlus className="text-pink-600" />
+              <FiPlus className="text-[#2F465E]" />
             </button>
           </div>
           <div className="text-right">
-            <div className="text-lg font-bold text-pink-600">
+            <div className="text-lg font-bold text-[#2F465E]">
               ₦{(price * quantity).toLocaleString()}
             </div>
             <button

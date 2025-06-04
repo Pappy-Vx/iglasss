@@ -7,7 +7,7 @@ import {FaTelegramPlane} from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-pink-600 text-white pt-16 pb-8">
+    <footer className="bg-[#2F465E] text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
@@ -74,7 +74,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className=" hover:text-pink-600 transition-colors"
+                    className=" hover:text-[#000000] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -92,7 +92,7 @@ const Footer = () => {
                   to="https://twitter.com/betaship"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2  hover:text-pink-600 transition-colors"
+                  className="flex items-center gap-2  hover:text-[#000000] transition-colors"
                 >
                   <FaXTwitter className="w-5 h-5" />
                   <span>Twitter</span>
@@ -103,7 +103,7 @@ const Footer = () => {
                   to="https://instagram.com/betaship"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2  hover:text-pink-600 transition-colors"
+                  className="flex items-center gap-2  hover:text-[#000000] transition-colors"
                 >
                   <FaInstagram className="w-5 h-5" />
                   <span>Instagram</span>
@@ -135,18 +135,18 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className=" text-center md:text-left">
-              {new Date().getFullYear()} Lush Hair. All rights reserved.
+              {new Date().getFullYear()} Iglasss. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link 
                 to="/privacy-policy"
-                className=" hover:text-pink-600 transition-colors"
+                className=" hover:text-[#000000] transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link 
                 to="/terms"
-                className=" hover:text-pink-600 transition-colors"
+                className=" hover:text-[#000000] transition-colors"
               >
                 Terms & Conditions
               </Link>

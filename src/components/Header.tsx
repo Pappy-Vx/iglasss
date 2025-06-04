@@ -99,10 +99,10 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <Link to="/" className="text-black hover:text-pink-600">
+            <Link to="/" className="text-black hover:text-[#2F465E]">
               Home
             </Link>
-            <Link to={routePath.New} className="text-black hover:text-pink-600">
+            <Link to={routePath.New} className="text-black hover:text-[#2F465E]">
               New In
             </Link>
             <Link
@@ -111,7 +111,7 @@ const Header = () => {
             >
               <NavigationMenuComponent className="text-black">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-black hover:text-pink-600">
+                  <NavigationMenuTrigger className="text-black hover:text-[#2F465E]">
                     Product <CaretDownIcon className="CaretDown" aria-hidden />
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -134,13 +134,13 @@ const Header = () => {
             </Link>
             <Link
               to={routePath.CONTACT}
-              className="text-black hover:text-pink-600"
+              className="text-black hover:text-[#2F465E]"
             >
               <span>Our Professional School</span>
             </Link>
             <Link
               to={routePath.CONTACT}
-              className="text-black hover:text-pink-600"
+              className="text-black hover:text-[#2F465E]"
             >
               <span>Contact</span>
             </Link>
@@ -157,10 +157,10 @@ const Header = () => {
                 />
                 <button
                   className={`absolute right-2 top-1/2 -translate-y-1/2 ${
-                    searchQuery.length >= 3 ? "bg-pink-600" : "bg-gray-400"
+                    searchQuery.length >= 3 ? "bg-[#2F465E]" : "bg-gray-400"
                   } text-white p-1.5 rounded-md transition-colors duration-300 ${
                     searchQuery.length >= 3
-                      ? "hover:bg-pink-600"
+                      ? "hover:bg-[#2F465E]"
                       : "cursor-not-allowed"
                   }`}
                   disabled={searchQuery.length < 3}
@@ -215,10 +215,10 @@ const Header = () => {
             </div>
             <Link
               to={routePath.CART}
-              className="hidden text-black hover:text-pink-600 lg:flex flex-row items-center space-x-2"
+              className="hidden text-black hover:text-[#2F465E] lg:flex flex-row items-center space-x-2"
             >
               <FiShoppingCart className="h-6 w-6" />
-              <span className="bg-pink-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="bg-[#2F465E] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {cartQuantity > 0 ? cartQuantity : 0}
               </span>
             </Link>
@@ -226,10 +226,10 @@ const Header = () => {
 
           <Link
               to={routePath.CART}
-              className="text-black hover:text-pink-600 flex lg:hidden flex-row items-center space-x-2"
+              className="text-black hover:text-[#2F465E] flex lg:hidden flex-row items-center space-x-2"
             >
               <FiShoppingCart className="h-6 w-6" />
-              <span className="bg-pink-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="bg-[#2F465E] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {cartQuantity > 0 ? cartQuantity : 0}
               </span>
             </Link>

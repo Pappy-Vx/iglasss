@@ -58,7 +58,7 @@ const ProductCard = ({ id, name, price, originalPrice, imageUrl, rating, reviews
       <div className="absolute bottom-24 left-4 right-4"> 
         <button
           onClick={handleAddToCart}
-          className="w-full h-14 bg-pink-600 text-white py-2 px-4 rounded-md   transition-colors duration-300 flex items-center justify-center space-x-2 cursor-pointer "
+          className="w-full h-14 bg-[#2F465E] text-white py-2 px-4 rounded-md   transition-colors duration-300 flex items-center justify-center space-x-2 cursor-pointer "
         >
           <span className='font-bold'>Buy Now</span> {/* Changed text to "Buy Now" */}
         </button>

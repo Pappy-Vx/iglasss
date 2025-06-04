@@ -23,7 +23,7 @@ const Cart = () => {
             <p className="text-gray-600 mb-8">Browse our products and discover our best deals!</p>
             <Link
               to={routePath.PRODUCTS}
-              className="inline-block bg-pink-600 text-white py-3 px-8 rounded-full hover:bg-[#ffffff] hover:text-pink-600 hover:border-pink-600 border-2 transition-colors"
+              className="inline-block bg-[#2F465E] text-white py-3 px-8 rounded-full hover:bg-[#ffffff] hover:text-[#2F465E] hover:border-[#2F465E] border-2 transition-colors"
             >
               Start Shopping
             </Link>

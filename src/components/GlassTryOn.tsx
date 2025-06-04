@@ -37,6 +37,8 @@ const GlassTryOn: React.FC = () => {
   const cameraRef = useRef<THREE.PerspectiveCamera>();
   const rendererRef = useRef<THREE.WebGLRenderer>();
   const currentModelRef = useRef<THREE.Group>();
+  const cameraInstanceRef = useRef<Camera | null>(null);
+  const requestIdRef = useRef<number>();
 
   useEffect(() => {
     if (!videoRef.current || !canvasRef.current) return;
@@ -64,11 +66,20 @@ const GlassTryOn: React.FC = () => {
         width: 640,
         height: 480,
       });
+      cameraInstanceRef.current = camera;
       camera.start();
     }
 
     return () => {
       faceMesh.close();
+      cameraInstanceRef.current?.stop();
+      if (requestIdRef.current) {
+        cancelAnimationFrame(requestIdRef.current);
+      }
+      if (currentModelRef.current) {
+        sceneRef.current?.remove(currentModelRef.current);
+        currentModelRef.current = undefined as unknown as THREE.Group;
+      }
       rendererRef.current?.dispose();
     };
   }, []);
@@ -105,7 +116,7 @@ const GlassTryOn: React.FC = () => {
   const animate = () => {
     if (!sceneRef.current || !cameraRef.current || !rendererRef.current) return;
 
-    requestAnimationFrame(animate);
+    requestIdRef.current = requestAnimationFrame(animate);
     rendererRef.current.render(sceneRef.current, cameraRef.current);
   };
 

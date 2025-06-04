@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { FaceMesh, Results } from '@mediapipe/face_mesh';
 import { Camera } from '@mediapipe/camera_utils';
-import './HairTryOn.css'; // rename CSS file accordingly
+import './GlassTryOn.css'; // rename CSS file accordingly
 
 interface GlassesFilter {
   id: string;
@@ -28,7 +28,7 @@ const glassesFilters: GlassesFilter[] = [
   
 ];
 
-const HairTryOn: React.FC = () => {
+const GlassTryOn: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [selectedFilter, setSelectedFilter] = useState<string>('basic-glasses');
@@ -162,7 +162,7 @@ const HairTryOn: React.FC = () => {
   };
 
   return (
-    <div className="hair-try-on">
+    <div className="glass-try-on">
     <div className="camera-view">
       <video
         ref={videoRef}
@@ -193,4 +193,4 @@ const HairTryOn: React.FC = () => {
   );
 };
 
-export default HairTryOn;
+export default GlassTryOn;

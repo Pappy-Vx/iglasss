@@ -1,3 +1,4 @@
+import GlassTryOn from "../components/GlassTryOn";
 
 
 export const routePath = {
@@ -14,5 +15,5 @@ export const routePath = {
     SHOP: "/shop",
     SUCCESS: "/success",
     New: "/new",
-    HairTryOn: "/hair-try-on",
+    GlassTryOn: "/glass-try-on",
 };

@@ -4,7 +4,7 @@ import p3_img from './product_3.png'
 import p4_img from './product_4.png'
 
 let data_product = [
-  {
+ {
     id:1,
     name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     image:p1_img,
@@ -29,6 +29,6 @@ let data_product = [
     new_price:100.00,
     old_price:150.00,
   },
-];
+]; 
 
 export default data_product;

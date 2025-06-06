@@ -3,15 +3,17 @@ import Marquee from 'react-fast-marquee';
 import ProductCard from './ProductCard';
 import { ProductCardProps } from '../../../types/home.types';
 import { AllProduct } from '../../../types/product.types';
+import { GlassProduct} from '../../../types/product.types';
+import glass_product from '../../../assets/items/glass_product';
 import all_product from '../../../assets/items/all_product';
 
 const FeaturedProducts = () => {
   const [products] = useState<ProductCardProps[]>(() => {
     // Get 6 random products from all_product
-    return all_product
+    return glass_product
       .sort(() => Math.random() - 0.5)
       .slice(0, 6)
-      .map((product: AllProduct) => ({
+      .map((product: GlassProduct) => ({
         id: String(product.id),
         name: product.name,
         price: product.new_price || 0,

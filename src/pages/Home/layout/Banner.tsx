@@ -7,8 +7,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // import Swiper styles
 
 
-import banner1 from "../../../assets/images/home.png"; // Update with correct paths
-
+import banner1 from "../../../assets/images/iglasss1.jpg"; // Update with correct paths
+import banner2 from "../../../assets/images/iglasss2.jpg"; // Update with correct paths
+import banner3 from "../../../assets/images/iglasss3.jpg"; // Update with correct paths
 
 
 const Banner = () => {
@@ -34,10 +35,10 @@ const Banner = () => {
         <img src={banner1} alt="Banner 1" className="slide-img" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={banner1} alt="Banner 2" className="slide-img" />
+        <img src={banner2} alt="Banner 2" className="slide-img" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={banner1} alt="Banner 3" className="slide-img" />
+        <img src={banner3} alt="Banner 3" className="slide-img" />
       </SwiperSlide>
     </Swiper>
     <p className="md:w-[50%] w-full leading-8 md:text-2xl text-xl md:ml-5 ml-0 mt-10" style={{fontFamily: 'NexaBold, sans-serif'}}>

@@ -6,3 +6,11 @@ export interface AllProduct {
   new_price: number;
   old_price: number;
 }
+
+export interface GlassProduct {
+    id: number,
+    name:string,
+    image: string,
+    new_price: number,
+    old_price: number,
+}

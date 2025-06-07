@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import Header from "../../components/Header";
 import ProductDetails from './layout/ProductDetails';
-import all_product from '../../assets/items/all_product';
+// import all_product from '../../assets/items/all_product';
+import glass_product from '../../assets/items/glass_product';
 import ProductCard from '../Home/layout/ProductCard';
 import RecentlyViewed from '../Home/layout/RecentlyViewed';
 import Footer from '../../components/Footer';
@@ -14,7 +15,7 @@ const Products = () => {
     return (
       <>
         <Header />
-        <div className='space-y-20'>
+        <div className='my-20'>
         <ProductDetails />
         <RecentlyViewed />
         </div>
@@ -26,15 +27,15 @@ const Products = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 py-8">
+      <div className=" mx-auto px-4 py-8 my-20">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800">All Products</h1>
           <p className="text-gray-600 mt-2">Discover our collection of premium products</p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {all_product.map((product) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {glass_product.map((product) => (
             <ProductCard
               key={product.id}
               id={String(product.id)}

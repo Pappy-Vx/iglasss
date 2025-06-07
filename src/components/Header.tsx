@@ -6,18 +6,18 @@ import {
   FiSearch,
   FiMenu,
 } from "react-icons/fi";
-import {
-  NavigationMenuComponent,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
-} from "./common/NavigationMenuComponent";
+// import {
+//   NavigationMenuComponent,
+//   NavigationMenuItem,
+//   NavigationMenuTrigger,
+//   NavigationMenuContent,
+//   NavigationMenuLink,
+// } from "./common/NavigationMenuComponent";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import Logo from "../../public/logo.png";
+import Logo from "../assets/images/logo.png";
 import { routePath } from "../utils/routePath";
 import { Product } from "../store/features/productSlice";
 
@@ -49,9 +49,9 @@ const Header = () => {
         // Filter all products based on search query
         const filteredProducts = products.filter(
           (product) =>
-            product.name.toLowerCase().includes(query.toLowerCase()) ||
-            product.category.toLowerCase().includes(query.toLowerCase()) ||
-            product.description.toLowerCase().includes(query.toLowerCase())
+            product.name.toLowerCase().includes(query.toLowerCase()) 
+            // product.category.toLowerCase().includes(query.toLowerCase()) ||
+            // product.description.toLowerCase().includes(query.toLowerCase())
         );
 
         setSearchResults(filteredProducts);
@@ -91,21 +91,19 @@ const Header = () => {
           >
             <FiMenu className="w-6 h-6" />
           </button>
-          <div className="bg-black w-20  ">
-            <img src={Logo} alt="" />
-          </div>
+          <Link to="/">
+            <img src={Logo} alt="" className="w-20"/>
+          </Link>
 
           {/* Search Bar */}
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <Link to="/" className="text-black hover:text-[#2F465E]">
-              Home
-            </Link>
+
             <Link to={routePath.New} className="text-black hover:text-[#2F465E]">
-              New In
+              EyeGlasses
             </Link>
-            <Link
+            {/* <Link
               to="/account"
               className="flex items-center space-x-2 text-gray-600 hover:text-[#330066]"
             >
@@ -131,12 +129,18 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuComponent>
-            </Link>
+            </Link> */}
             <Link
               to={routePath.CONTACT}
               className="text-black hover:text-[#2F465E]"
             >
-              <span>Our Professional School</span>
+              <span>Sunglasses</span>
+            </Link>
+             <Link
+              to={routePath.CONTACT}
+              className="text-black hover:text-[#2F465E]"
+            >
+              <span>Lenses</span>
             </Link>
             <Link
               to={routePath.CONTACT}
@@ -191,9 +195,9 @@ const Header = () => {
                           <h4 className="text-sm font-medium text-gray-900">
                             {product.name}
                           </h4>
-                          <p className="text-xs text-gray-500">
+                          {/* <p className="text-xs text-gray-500">
                             {product.category}
-                          </p>
+                          </p> */}
                           <p className="text-sm font-medium text-[#330066]">
                             ₦{product.price.toLocaleString()}
                           </p>

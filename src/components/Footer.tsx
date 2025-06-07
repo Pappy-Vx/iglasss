@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { routePath } from '../utils/routePath';
-import Logo from '../../public/logo.png';
+import Logo from '../assets/images/logofooter.png';
 import { FiMail, FiPhone } from 'react-icons/fi';
 import { FaXTwitter, FaInstagram, FaLocationPin,  FaPhone,  } from 'react-icons/fa6';
 import {FaTelegramPlane} from 'react-icons/fa';
@@ -29,30 +29,19 @@ const Footer = () => {
                   className="flex items-center gap-2  "
                 >
                     <FaLocationPin className='w-5 h-5' />
-                    <span >38 Eric Moore Road, Surelere, Lagos, Nigeria</span>
+                    <span > Lagos, Nigeria</span>
                 </Link>
               </li>
               <li>
                 <Link
-                to="tel:+2348095999000"
+                to="tel:+2348146664972"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 "
                 >
                   <FaPhone className='w-5 h-5' />
-                  <span >+234 8095 9990 00</span>
+                  <span >+234 814 666 4972</span>
                 </Link>
-              </li>
-              <li>
-                <div className="flex items-center gap-2 ">
-                <FaTelegramPlane className='w-5 h-5' />
-                  <a 
-                    href="mailto:lush@tolaram.com"
-                    className="text-white hover:underline"
-                  >
-                    lush@tolaram.com
-                  </a>
-                </div>
               </li>
             </ul>
           </div>
@@ -62,14 +51,9 @@ const Footer = () => {
             <h3 className="text-lg font-semibold  mb-4 uppercase">Quick Links</h3>
             <ul className="space-y-3">
               {[
-                { name: 'Braids', path: routePath.ABOUT },
-                { name: 'Crotchet', path: routePath.PRODUCTS },
-                { name: 'Weaves', path: routePath.CONTACT },
-                { name: 'Kids', path: '/delivery-return' },
-                { name: 'Lush Hair Care', path: '/delivery-return' },
-                { name: 'Professional School', path: '/delivery-return' },
-                { name: 'Pink Celebreties', path: '/delivery-return' },
-                { name: 'Pink Belle', path: '/delivery-return' },
+                { name: 'Sunglasses', path: routePath.ABOUT },
+                { name: 'Eyeglasses', path: routePath.PRODUCTS },
+                { name: 'Lenses', path: routePath.CONTACT },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -111,19 +95,12 @@ const Footer = () => {
               </li>
               <li>
                 <div className="flex items-center gap-2 ">
-                  <FiPhone className="w-5 h-5" />
-                  <span>+234 814 666 4972</span>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center gap-2 ">
                   <FiMail className="w-5 h-5" />
-                  <span>Email:</span>
                   <a 
-                    href="mailto:info@betaship.com.ng"
+                    href="mailto:kolawolekolapo20@gmail.com"
                     className="text-white hover:underline"
                   >
-                    info@lushhair.com
+                    click here
                   </a>
                 </div>
               </li>

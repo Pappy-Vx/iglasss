@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import ProductCard from './ProductCard';
 import { ProductCardProps } from '../../../types/home.types';
-import { AllProduct } from '../../../types/product.types';
+// import { AllProduct } from '../../../types/product.types';
 import { GlassProduct} from '../../../types/product.types';
 import glass_product from '../../../assets/items/glass_product';
-import all_product from '../../../assets/items/all_product';
+// import all_product from '../../../assets/items/all_product';
 
 const FeaturedProducts = () => {
   const [products] = useState<ProductCardProps[]>(() => {

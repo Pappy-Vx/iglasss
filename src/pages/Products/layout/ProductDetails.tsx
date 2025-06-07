@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { addToCart } from "../../../store/features/cartSlice";
 import { toast } from "react-toastify";
-import all_product from "../../../assets/items/all_product";
+// import all_product from "../../../assets/items/all_product";
 import glass_product from "../../../assets/items/glass_product";
 import { routePath } from "../../../utils/routePath";
 

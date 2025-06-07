@@ -16,7 +16,7 @@ const Cart = () => {
     return (
       <>
         <Header />
-        <div className="container mx-auto px-4 py-16 text-center mt-8">
+        <div className="container my-20 mx-auto px-4 py-16 text-center mt-8">
           <div className="max-w-md mx-auto">
             <FiShoppingBag className="w-16 h-16 mx-auto text-gray-400 mb-4" />
             <h2 className="text-2xl font-bold text-gray-800 mb-2">Your cart is empty</h2>
@@ -38,7 +38,7 @@ const Cart = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 py-8">
+      <div className="px-4 my-20 mx-auto py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Cart Items */}
           <div className="lg:flex-grow">

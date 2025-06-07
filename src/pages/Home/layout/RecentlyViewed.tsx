@@ -1,10 +1,10 @@
- import { useRecentlyViewed } from '../../../hooks/useRecentlyViewed';
- import ProductCard from './ProductCard';
+import { useRecentlyViewed } from '../../../hooks/useRecentlyViewed';
+import ProductCard from './ProductCard';
 
 const RecentlyViewed = () => {
   const { recentItems } = useRecentlyViewed();
 
- if (recentItems.length === 0) return null;
+  if (recentItems.length === 0) return null;
 
   return (
     <section className="py-8">
@@ -13,11 +13,11 @@ const RecentlyViewed = () => {
           Recently Viewed
         </h2>
       </div>
-       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {recentItems.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
-      </div> 
+      </div>
     </section>
   );
 };

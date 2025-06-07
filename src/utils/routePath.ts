@@ -1,6 +1,3 @@
-import GlassTryOn from "../components/GlassTryOn";
-
-
 export const routePath = {
     HOME: "/",
     PRODUCTS: "/products",

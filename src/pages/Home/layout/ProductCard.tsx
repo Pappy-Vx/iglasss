@@ -29,7 +29,7 @@ const ProductCard = ({ id, name, price, originalPrice, imageUrl, rating, reviews
         className="block"
         onClick={handleProductClick}
       >
-        <div className="  hover:shadow-md transition-shadow duration-300">
+        <div className=" rounded-lg hover:shadow-md transition-shadow duration-300">
           <div className="relative aspect-w-1 aspect-h-1">
             <img
               src={imageUrl}
@@ -39,7 +39,7 @@ const ProductCard = ({ id, name, price, originalPrice, imageUrl, rating, reviews
           </div>
 
           <div className="p-4 flex flex-row justify-between items-center">
-            <h3 className="text-gray-800 font-medium mb-2 group-hover:text-[#330066] transition-colors line-clamp-2">
+            <h3 className="text-gray-800 font-medium mb-2 group-hover:text-[#000] transition-colors line-clamp-2">
               {name}
             </h3>
 

@@ -37,35 +37,35 @@ let glass_product = [
   {
     "id": 6,
     "name": "Prada PR A01S 16K08Z",
-    "image": "https://www.sunglasshut.com/us/prada/pr-a01s-8056597967983",
+    "image": "https://assets2.sunglasshut.com/cdn-record-files-pi/3ef1786b-f40a-4b13-ab89-b00b0107fc1b/a7940580-c980-4803-b40e-b00b01080873/0PR_A01S__16K08Z__P21__shad__cfr.png?impolicy=SGH_bgtransparent&width=1024",
     "new_price": 162.97,
     "old_price": 220.00
   },
   {
     "id": 7,
     "name": "Gucci GG0061S Sunglasses",
-    "image": "https://www.sunglasshut.com/us/gucci/gc000994-889652051208",
+    "image": "https://assets2.sunglasshut.com/cdn-record-files-pi/7784a70f-07fe-46e2-85a1-a6ff00221403/dac6057c-8f60-409c-aa99-a74a01183844/0GC000994__2300L1_000A.png?impolicy=SGH_bgtransparent&width=1024",
     "new_price": 196.27,
     "old_price": 250.00
   },
   {
     "id": 8,
     "name": "Dolce & Gabbana DG5026",
-    "image": "https://www.lenscrafters.com/lc-us/dolce-and-gabbana/8053672822182",
+    "image": "https://assets.lenscrafters.com/is/image/LensCrafters/8053672822182_shad_fr.png?impolicy=LC_grey",
     "new_price": 105.89,
     "old_price": 140.00
   },
   {
     "id": 9,
     "name": "MAUI JIM PEAHI",
-    "image": "https://www.mauijim.com/US/en_US/shop/sunglasses/peahi/202-02",
+    "image": "https://images.mauijim.com/sunglasses/621/DGS621-16_front.jpg?imwidth=900",
     "new_price": 131.71,
     "old_price": 180.00
   },
   {
     "id": 10,
     "name": "Oakley Radar EV Path",
-    "image": "https://www.oakley.com/en-us/product/W0OO9208?variant=888392105428",
+    "image": "https://assets2.oakley.com/cdn-record-files-pi/359bc1e6-bc77-4e8f-9578-a71000709bfb/6fea9b88-b41d-446e-ad14-ad7901526884/0OO9208__920852__P21__shad__cfr.png?impolicy=OO_ratio&width=1000",
     "new_price": 194.00,
     "old_price": 230.00
   }

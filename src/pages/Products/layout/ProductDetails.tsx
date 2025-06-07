@@ -5,6 +5,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { addToCart } from "../../../store/features/cartSlice";
 import { toast } from "react-toastify";
 import all_product from "../../../assets/items/all_product";
+import glass_product from "../../../assets/items/glass_product";
 import { routePath } from "../../../utils/routePath";
 
 const sizes = ["S", "M", "L", "XL", "XXL"];
@@ -16,7 +17,7 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
 
   // Find the product from all_product
-  const product = all_product.find((p) => p.id === Number(id));
+  const product = glass_product.find((p) => p.id === Number(id));
 
   if (!product) {
     return <div className="text-center py-12">Product not found</div>;
@@ -59,9 +60,9 @@ const ProductDetails = () => {
             Home
           </Link>
           <span className="mx-2">/</span>
-          <span className="text-gray-500">{product.category}</span>
+          {/* <span className="text-gray-500">{product.category}</span> */}
           <span className="mx-2">/</span>
-          <span className="text-[#330066] lowercase">{product.name}</span>
+          <span className="text-[#2F465E] lowercase">{product.name}</span>
         </nav>
         <div className="md:w-1/2">
           <div className="bg-gray-50 rounded-lg p-4">
@@ -80,16 +81,16 @@ const ProductDetails = () => {
               Home
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-500">{product.category}</span>
+            {/* <span className="text-gray-500">{product.category}</span> */}
             <span className="mx-2">/</span>
-            <span className="text-[#330066] lowercase">{product.name}</span>
+            <span className="text-[#2F465E] lowercase">{product.name}</span>
           </nav>
 
           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
 
           <div className="flex items-center mb-4">
             {[...Array(5)].map((_, index) => (
-              <span key={index} className="text-[#330066] text-xl">
+              <span key={index} className="text-[#2F465E] text-xl">
                 ★
               </span>
             ))}
@@ -97,7 +98,7 @@ const ProductDetails = () => {
           </div>
 
           <div className="mb-6">
-            <div className="text-3xl font-bold text-[#330066]">
+            <div className="text-3xl font-bold text-[#2F465E]">
               ₦{product.new_price.toLocaleString()}
               {product.old_price > product.new_price && (
                 <span className="ml-2 text-lg text-gray-500 line-through">
@@ -120,9 +121,9 @@ const ProductDetails = () => {
                   onClick={() => setSelectedSize(size)}
                   className={`w-12 h-12 rounded-full flex items-center justify-center border ${
                     selectedSize === size
-                      ? "border-[#330066] text-[#330066]"
+                      ? "border-[#2F465E] text-[#2F465E]"
                       : "border-gray-300 text-gray-600"
-                  } hover:border-[#330066] transition-colors`}
+                  } hover:border-[#000] transition-colors`}
                 >
                   {size}
                 </button>
@@ -136,18 +137,18 @@ const ProductDetails = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-                className="p-2 rounded-full border border-gray-300 hover:border-[#330066]"
+                className="p-2 rounded-full border border-gray-300 hover:border-[#000]"
               >
-                <FiMinus className="text-[#330066]" />
+                <FiMinus className="text-[#2F465E]" />
               </button>
-              <span className="text-xl font-medium w-8 text-center text-[#330066]">
+              <span className="text-xl font-medium w-8 text-center text-[#2F465E]">
                 {quantity}
               </span>
               <button
                 onClick={() => setQuantity((prev) => prev + 1)}
-                className="p-2 rounded-full border border-gray-300 hover:border-[#330066]"
+                className="p-2 rounded-full border border-gray-300 hover:border-[#000]"
               >
-                <FiPlus className="text-[#330066]" />
+                <FiPlus className="text-[#2F465E]" />
               </button>
             </div>
           </div>
@@ -156,7 +157,7 @@ const ProductDetails = () => {
           <div className="flex gap-4">
             <button
               onClick={handleAddToCart}
-              className="flex-1 bg-[#330066] text-white py-3 px-6 rounded-full hover:bg-[#2a0052] transition-colors cursor-pointer"
+              className="flex-1 bg-[#2F465E] text-white py-3 px-6 rounded-full hover:bg-[#000] transition-colors cursor-pointer"
             >
               Add to Cart
             </button>
@@ -168,7 +169,7 @@ const ProductDetails = () => {
           {/* Delivery Info */}
           <div className="mt-8 space-y-4">
             <div className="flex items-start gap-2">
-              <span className="text-[#330066]">🚚</span>
+              <span className="text-[#2F465E]">🚚</span>
               <div>
                 <h4 className="font-semibold">Free Delivery</h4>
                 <p className="text-sm text-gray-600">
@@ -177,7 +178,7 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-[#330066]">↩️</span>
+              <span className="text-[#2F465E]">↩️</span>
               <div>
                 <h4 className="font-semibold">Return Delivery</h4>
                 <p className="text-sm text-gray-600">

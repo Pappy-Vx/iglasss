@@ -14,8 +14,10 @@ const Products = () => {
     return (
       <>
         <Header />
+        <div className='space-y-20'>
         <ProductDetails />
         <RecentlyViewed />
+        </div>
       </>
     );
   }

@@ -41,7 +41,7 @@ const Banner = () => {
         <img src={banner3} alt="Banner 3" className="slide-img" />
       </SwiperSlide>
     </Swiper>
-    <p className="md:w-[50%] w-full leading-8 md:text-2xl text-xl md:ml-5 ml-0 mt-10" style={{fontFamily: 'NexaBold, sans-serif'}}>
+    <p className=" w-full leading-8 md:text-xl text-lg md:ml-5 ml-0 mt-10 text-center" style={{fontFamily: 'NexaBold, sans-serif'}}>
     Welcome to Iglasss where style meets vision! Your perfect frames await, so dive in and discover eyewear that’s made to match your mood, your look, and your lifestyle.
     </p>
   </div>

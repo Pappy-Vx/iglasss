@@ -132,7 +132,7 @@ const Checkout = () => {
                   required
                   value={shippingDetails.firstName}
                   onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066]"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E]"
                 />
               </div>
               <div>
@@ -145,7 +145,7 @@ const Checkout = () => {
                   required
                   value={shippingDetails.lastName}
                   onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066]"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E]"
                 />
               </div>
             </div>
@@ -162,7 +162,7 @@ const Checkout = () => {
                 placeholder="House number and street name"
                 value={shippingDetails.streetAddress}
                 onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066]"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E]"
               />
             </div>
  
@@ -178,7 +178,7 @@ const Checkout = () => {
                   required
                   value={shippingDetails.town}
                   onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066]"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E]"
                 />
               </div>
               <div>
@@ -190,7 +190,7 @@ const Checkout = () => {
                   required
                   value={shippingDetails.state}
                   onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066] max-h-32 overflow-y-auto"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E] max-h-32 overflow-y-auto"
                 >
                   <option value="">Select a state</option>
                   {states && states.map((state) => (
@@ -212,7 +212,7 @@ const Checkout = () => {
                 required
                 value={shippingDetails.phone}
                 onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066]"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E]"
               />
             </div>
 
@@ -226,7 +226,7 @@ const Checkout = () => {
                 required
                 value={shippingDetails.email}
                 onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066]"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E]"
               />
             </div>
 
@@ -239,7 +239,7 @@ const Checkout = () => {
                 rows={4}
                 value={shippingDetails.orderNotes}
                 onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#330066]"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F465E]"
                 placeholder="Notes about your order, e.g. special notes for delivery"
               />
             </div>
@@ -298,7 +298,7 @@ const Checkout = () => {
                     value="transfer"
                     checked={paymentMethod === 'transfer'}
                     onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)}
-                    className="text-[#330066] focus:ring-[#330066]"
+                    className="text-[#2F465E] focus:ring-[#2F465E]"
                   />
                   <span>Direct Bank Transfer</span>
                 </label>
@@ -323,7 +323,7 @@ const Checkout = () => {
                     value="monnify"
                     checked={paymentMethod === 'monnify'}
                     onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)}
-                    className="text-[#330066] focus:ring-[#330066]"
+                    className="text-[#2F465E] focus:ring-[#2F465E]"
                   />
                   <span>Pay with Monnify</span>
                 </label>
@@ -336,10 +336,10 @@ const Checkout = () => {
             </div>
             <button
               type="submit"
-               className=' bg-[#330066] hover:bg-purple-700'
+               className=' bg-[#2F465E] px-10 py-2 text-white rounded-full cursor-pointer'
       
             >
-             place order
+             Place order
             </button>
 
             {/* <button
@@ -349,7 +349,7 @@ const Checkout = () => {
               className={`w-full py-3 px-4 rounded-md text-white font-medium ${
                 isSubmitting 
                   ? 'bg-gray-400 cursor-not-allowed' 
-                  : 'bg-[#330066] hover:bg-purple-700'
+                  : 'bg-[#2F465E] hover:bg-purple-700'
               }`}
             >
               {isSubmitting ? 'Processing...' : 'Place Order'}

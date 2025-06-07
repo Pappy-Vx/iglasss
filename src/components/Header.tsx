@@ -143,7 +143,7 @@ const Header = () => {
               <span>Lenses</span>
             </Link>
             <Link
-              to={routePath.CONTACT}
+              to="https://kolapo.vercel.app/"
               className="text-black hover:text-[#2F465E]"
             >
               <span>Contact</span>

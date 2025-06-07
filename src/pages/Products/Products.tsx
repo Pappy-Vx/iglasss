@@ -19,6 +19,7 @@ const Products = () => {
         <ProductDetails />
         <RecentlyViewed />
         </div>
+        <Footer />
       </>
     );
   }

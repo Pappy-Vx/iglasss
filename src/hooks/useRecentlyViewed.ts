@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ProductCardProps } from '../types/home.types';
 
-const MAX_RECENT_ITEMS = 6;
+const MAX_RECENT_ITEMS = 3;
 
 export const useRecentlyViewed = () => {
   const [recentItems, setRecentItems] = useState<ProductCardProps[]>([]);

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { routePath } from '../utils/routePath';
 import Logo from '../assets/images/logofooter.png';
-import { FiMail, FiPhone } from 'react-icons/fi';
+import { FiMail } from 'react-icons/fi';
 import { FaXTwitter, FaInstagram, FaLocationPin,  FaPhone,  } from 'react-icons/fa6';
-import {FaTelegramPlane} from 'react-icons/fa';
+
 
 const Footer = () => {
   return (

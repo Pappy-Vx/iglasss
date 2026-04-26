@@ -2,132 +2,143 @@ import { Link } from 'react-router-dom';
 import { routePath } from '../utils/routePath';
 import Logo from '../assets/images/logofooter.png';
 import { FiMail } from 'react-icons/fi';
-import { FaXTwitter, FaInstagram, FaLocationPin,  FaPhone,  } from 'react-icons/fa6';
-
+import { FaXTwitter, FaInstagram, FaLocationPin, FaPhone } from 'react-icons/fa6';
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-[#2F465E] text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Company Info */}
+    <footer className="bg-[#0A1D37] text-white">
+      {/* Main footer grid */}
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+          {/* Brand */}
           <div className="space-y-4">
-            <Link to={routePath.HOME} className="block">
-              <img src={Logo} alt="BetaShip Logo" className="h-16 w-auto" />
+            <Link to={routePath.HOME}>
+              <img src={Logo} alt="Iglasss" className="h-12 w-auto" />
             </Link>
+            <p className="text-white/55 text-sm leading-relaxed max-w-xs">
+              Premium eyewear for every face, mood, and lifestyle. Lagos-born, Nigeria-wide.
+            </p>
+            <div className="flex gap-3 pt-1">
+              <a
+                href="https://instagram.com/iglasss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+              >
+                <FaInstagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://twitter.com/iglasss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+              >
+                <FaXTwitter className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:azeezkolapo05@gmail.com"
+                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+              >
+                <FiMail className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
-          {/* Categories */}
+          {/* Shop links */}
           <div>
-          <h3 className="text-lg font-semibold  mb-4 uppercase">Corporate Head Offices</h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  to="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2  "
-                >
-                    <FaLocationPin className='w-5 h-5' />
-                    <span > Lagos, Nigeria</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                to="tel:+2348146664972"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 "
-                >
-                  <FaPhone className='w-5 h-5' />
-                  <span >+234 814 666 4972</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold  mb-4 uppercase">Quick Links</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/40 mb-5">
+              Shop
+            </h3>
             <ul className="space-y-3">
               {[
-                { name: 'Sunglasses', path: routePath.ABOUT },
-                { name: 'Eyeglasses', path: routePath.PRODUCTS },
-                { name: 'Lenses', path: routePath.CONTACT },
+                { label: 'Eyeglasses', path: routePath.New },
+                { label: 'Sunglasses', path: routePath.SHOP },
+                { label: 'Contact Lenses', path: routePath.PRODUCTS },
+                { label: 'AR Try-On', path: routePath.GlassTryOn },
+                { label: 'New Arrivals', path: routePath.New },
               ].map((link) => (
-                <li key={link.name}>
+                <li key={link.label}>
                   <Link
                     to={link.path}
-                    className=" hover:text-[#000000] transition-colors"
+                    className="text-sm text-white/60 hover:text-white transition-colors"
                   >
-                    {link.name}
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Us */}
+          {/* Info links */}
           <div>
-            <h3 className="text-lg font-semibold  mb-4 uppercase">Contact Us</h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  to="https://twitter.com/betaship"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2  hover:text-[#000000] transition-colors"
-                >
-                  <FaXTwitter className="w-5 h-5" />
-                  <span>Twitter</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="https://instagram.com/betaship"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2  hover:text-[#000000] transition-colors"
-                >
-                  <FaInstagram className="w-5 h-5" />
-                  <span>Instagram</span>
-                </Link>
-              </li>
-              <li>
-                <div className="flex items-center gap-2 ">
-                  <FiMail className="w-5 h-5" />
-                  <a 
-                    href="mailto:kolawolekolapo20@gmail.com"
-                    className="text-white hover:underline"
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/40 mb-5">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              {[
+                { label: 'About Iglasss', path: routePath.ABOUT },
+                { label: 'Contact Us', path: routePath.CONTACT },
+                { label: 'Privacy Policy', path: routePath.POLICY },
+                { label: 'Terms & Conditions', path: '/terms' },
+                { label: 'Returns & Refunds', path: routePath.POLICY },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-white/60 hover:text-white transition-colors"
                   >
-                    click here
-                  </a>
-                </div>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/40 mb-5">
+              Contact
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-sm text-white/60">
+                <FaLocationPin className="w-4 h-4 text-white/40 mt-0.5 flex-shrink-0" />
+                <span>Lagos, Nigeria<br /><span className="text-white/35 text-xs">Island & Mainland locations</span></span>
+              </li>
+              <li>
+                <a
+                  href="tel:+2348146664972"
+                  className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  <FaPhone className="w-4 h-4 text-white/40 flex-shrink-0" />
+                  +234 814 666 4972
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:azeezkolapo05@gmail.com"
+                  className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  <FiMail className="w-4 h-4 text-white/40 flex-shrink-0" />
+                  hello@iglasss.ng
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className=" text-center md:text-left">
-              {new Date().getFullYear()} Iglasss. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <Link 
-                to="/privacy-policy"
-                className=" hover:text-[#000000] transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link 
-                to="/terms"
-                className=" hover:text-[#000000] transition-colors"
-              >
-                Terms & Conditions
-              </Link>
-            </div>
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+          <p>© {year} Iglasss. All rights reserved.</p>
+          <div className="flex items-center gap-5">
+            <Link to={routePath.POLICY} className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

@@ -1,37 +1,107 @@
+import { Link } from 'react-router-dom';
+import { routePath } from '../../../utils/routePath';
 import collect1 from '../../../assets/images/iglasscollection1.jpg';
 import collect2 from '../../../assets/images/iglasscollection2.jpg';
 
 const NewCollections = () => {
-
-
   return (
-    <section className="py-8">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="md:text-4xl text-2xl font-bold text-black">
-          Explore Our Collections
-        </h2>
+    <section>
+      <div className="flex items-end justify-between mb-10">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2F465E] mb-2 block">
+            Collections
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+            Explore Our Collections
+          </h2>
+        </div>
+        <Link
+          to={routePath.PRODUCTS}
+          className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[#2F465E] hover:underline"
+        >
+          View all
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-       <div className="overflow-hidden w-full h-[650px] lg:h-[800px] bg-[#96887D] rounded-md">
-        <img src={collect1} alt="" />
-        <h3 className='text-3xl font-bold text-[#fff] ml-5 mt-8'>Summer Collection</h3>
-        <ul className='text-[#fff] ml-10 mr-4 mt-6 list-disc'>
-          <li>With Iglasss, your summer style steps into the spotlight. From bold cat-eyes to sleek aviators and translucent frames, our latest collection brings the sunshine to your look. </li>
-        </ul>
-        <div className='flex items-center justify-center'>
-        <button className='bg-[#3D3834] hover:bg-white hover:text-[#3D3834] text-white px-4 py-2 rounded-full text-2xl w-76 h-14 mt-12 md:mt-18 text-bold cursor-pointer'>Get yours here</button>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Summer Collection */}
+        <div className="group relative overflow-hidden rounded-2xl bg-[#96887D] h-[560px] md:h-[640px]">
+          <img
+            src={collect1}
+            alt="Summer Collection"
+            className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
+
+          <div className="absolute bottom-0 left-0 right-0 p-7">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-300 mb-2 block">
+              2025 Season
+            </span>
+            <h3 className="text-3xl font-black text-white mb-3 leading-tight">
+              Summer Collection
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed mb-6 max-w-xs">
+              From bold cat-eyes to sleek aviators and translucent frames — let the sunshine into your style.
+            </p>
+            <Link
+              to={routePath.SHOP}
+              className="inline-flex items-center gap-2 bg-white text-[#3D3834] hover:bg-[#3D3834] hover:text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 text-sm"
+            >
+              Shop Summer
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
-       </div>
-       <div className="overflow-hidden w-full h-[650px] lg:h-[800px] bg-[#E7E7E7] rounded-md">
-        <img src={collect2} alt="" />
-        <h3 className='text-3xl font-bold text-[#506D4E] ml-5 mt-8'>Kid's Wear</h3>
-        <ul className='text-[#506D4E] ml-10 mr-4 mt-6 list-disc'>
-          <li>With Iglasss Kids, it's not just eyewear, it's a window to their imagination! From vibrant frames to comfy fits and playful designs, we've got the perfect pair for every little explorer.</li>
-        </ul>
-        <div className='flex items-center justify-center'>
-        <button className='bg-[#A1BF9F] hover:bg-white hover:text-[#A1BF9F] text-white px-4 py-2 rounded-full text-2xl w-76 h-14 mt-12 md:mt-24 text-bold cursor-pointer'>Get yours here</button>
+
+        {/* Kid's Wear */}
+        <div className="group relative overflow-hidden rounded-2xl bg-[#E7E7E7] h-[560px] md:h-[640px]">
+          <img
+            src={collect2}
+            alt="Kid's Collection"
+            className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#506D4E]/80 via-[#506D4E]/20 to-transparent" />
+
+          <div className="absolute bottom-0 left-0 right-0 p-7">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-green-200 mb-2 block">
+              Kids & Junior
+            </span>
+            <h3 className="text-3xl font-black text-white mb-3 leading-tight">
+              Kids' Wear
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed mb-6 max-w-xs">
+              Vibrant frames, comfy fits, and playful designs — a perfect pair for every little explorer.
+            </p>
+            <Link
+              to={routePath.New}
+              className="inline-flex items-center gap-2 bg-white text-[#506D4E] hover:bg-[#506D4E] hover:text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 text-sm"
+            >
+              Shop Kids
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
-       </div>
+      </div>
+
+      {/* Stats strip */}
+      <div className="mt-10 grid grid-cols-3 gap-4 py-8 px-6 bg-[#2F465E] rounded-2xl text-white text-center">
+        {[
+          { num: '500+', label: 'Frame Styles' },
+          { num: '50k+', label: 'Happy Customers' },
+          { num: '5★', label: 'Average Rating' },
+        ].map((stat) => (
+          <div key={stat.label}>
+            <div className="text-2xl md:text-3xl font-black">{stat.num}</div>
+            <div className="text-xs md:text-sm text-white/70 mt-1">{stat.label}</div>
+          </div>
+        ))}
       </div>
     </section>
   );

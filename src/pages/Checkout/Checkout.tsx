@@ -307,9 +307,9 @@ const Checkout = () => {
                     <p className="font-medium mb-2">Bank Details:</p>
                     <p>Bank: First Bank</p>
                     <p>Account Number: 0123456789</p>
-                    <p>Account Name: BetaShip Medical Supplies</p>
+                    <p>Account Name: Iglasss Nigeria</p>
                     <p className="mt-2 text-gray-600">
-                      Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will be shipped after we receive the payment.
+                      Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will be shipped after we confirm payment.
                     </p>
                   </div>
                 )}

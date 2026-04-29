@@ -63,8 +63,21 @@ const FeaturedProducts = () => {
         </Marquee>
       </div>
 
+      {/*
+        Large gap between rows — this horizontal band aligns with the fixed glasses
+        animation at viewport center, letting the assembled glasses show clearly
+        between the two scrolling product streams.
+      */}
+      <div className="flex items-center justify-center mt-12 mb-10">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#2F465E]/10 to-transparent" />
+        <span className="mx-4 text-[10px] uppercase tracking-[0.3em] text-[#2F465E]/25 font-semibold whitespace-nowrap select-none">
+          Featured Frames
+        </span>
+        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[#2F465E]/10 to-transparent" />
+      </div>
+
       {/* Second row (reverse) */}
-      <div className="relative mt-4">
+      <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10 pointer-events-none" />
         <Marquee direction="right" speed={45} pauseOnHover gradient={false}>

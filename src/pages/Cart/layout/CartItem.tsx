@@ -65,7 +65,7 @@ const CartItem = ({ id, name, price, imageUrl, quantity, size }: CartItemProps) 
           </div>
           <div className="text-right">
             <div className="text-lg font-bold text-[#2F465E]">
-              ₦{(price * quantity).toLocaleString()}
+              £{(price * quantity).toLocaleString()}
             </div>
             <button
               onClick={handleRemove}

@@ -10,9 +10,6 @@ import banner3 from '../../../assets/images/iglasss3.jpg';
 const slides = [
   {
     img: banner1,
-    tag: 'New Arrivals 2025',
-    headline: 'See the World in Style',
-    sub: 'Curated frames that match your mood, your look, your life.',
     cta: 'Shop Now',
     ctaPath: routePath.PRODUCTS,
     ctaAlt: 'Try AR',
@@ -21,9 +18,6 @@ const slides = [
   },
   {
     img: banner2,
-    tag: 'Summer Collection',
-    headline: 'Bold Frames, Brighter Days',
-    sub: 'From cat-eyes to aviators — find your perfect summer look.',
     cta: 'Explore Collection',
     ctaPath: routePath.SHOP,
     ctaAlt: 'Try Virtual Try-On',
@@ -32,9 +26,6 @@ const slides = [
   },
   {
     img: banner3,
-    tag: 'AR Technology',
-    headline: 'Try Before You Buy',
-    sub: 'Use our AR try-on to see exactly how frames look on your face.',
     cta: 'Try AR Now',
     ctaPath: routePath.GlassTryOn,
     ctaAlt: 'Browse All',
@@ -68,50 +59,27 @@ const Banner = () => {
                 alt={slide.headline}
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
-              {/* Gradient overlay */}
+              {/* Subtle gradient only at the bottom for button readability */}
+              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/55 to-transparent" />
+
+              {/* CTA buttons — bottom-aligned, respects slide alignment */}
               <div
-                className={`absolute inset-0 ${
-                  slide.align === 'right'
-                    ? 'bg-gradient-to-l from-black/70 via-black/30 to-transparent'
-                    : 'bg-gradient-to-r from-black/70 via-black/30 to-transparent'
-                }`}
-              />
-              {/* Content */}
-              <div
-                className={`absolute inset-0 flex items-center px-8 md:px-16 lg:px-24 ${
+                className={`absolute bottom-10 inset-x-0 flex gap-3 px-8 md:px-16 ${
                   slide.align === 'right' ? 'justify-end' : 'justify-start'
                 }`}
               >
-                <div
-                  className={`max-w-lg text-white ${
-                    slide.align === 'right' ? 'text-right' : 'text-left'
-                  }`}
-                  style={{ animation: 'fade-up 0.9s ease forwards' }}
+                <Link
+                  to={slide.ctaPath}
+                  className="bg-white text-[#2F465E] hover:bg-[#2F465E] hover:text-white font-semibold px-7 py-3 rounded-full transition-all duration-300 text-sm shadow-lg"
                 >
-                  <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-blue-200 mb-3 bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
-                    {slide.tag}
-                  </span>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4 drop-shadow-lg">
-                    {slide.headline}
-                  </h1>
-                  <p className="text-base md:text-lg text-white/80 mb-8 leading-relaxed">
-                    {slide.sub}
-                  </p>
-                  <div className={`flex gap-3 flex-wrap ${slide.align === 'right' ? 'justify-end' : 'justify-start'}`}>
-                    <Link
-                      to={slide.ctaPath}
-                      className="bg-white text-[#2F465E] hover:bg-[#2F465E] hover:text-white font-semibold px-7 py-3 rounded-full transition-all duration-300 text-sm shadow-lg hover:shadow-xl"
-                    >
-                      {slide.cta}
-                    </Link>
-                    <Link
-                      to={slide.ctaAltPath}
-                      className="border-2 border-white/70 text-white hover:bg-white/20 font-medium px-6 py-3 rounded-full transition-all duration-300 text-sm backdrop-blur-sm"
-                    >
-                      {slide.ctaAlt}
-                    </Link>
-                  </div>
-                </div>
+                  {slide.cta}
+                </Link>
+                <Link
+                  to={slide.ctaAltPath}
+                  className="border-2 border-white/80 text-white hover:bg-white/20 font-medium px-6 py-3 rounded-full transition-all duration-300 text-sm backdrop-blur-sm"
+                >
+                  {slide.ctaAlt}
+                </Link>
               </div>
             </div>
           </SwiperSlide>

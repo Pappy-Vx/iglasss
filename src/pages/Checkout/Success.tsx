@@ -43,7 +43,7 @@ const Success = () => {
           <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
           <div className="space-y-4">
             <div className="border-b pb-4">
-              <p className="font-medium mb-2">Order Total: ₦{orderDetails.total.toLocaleString()}</p>
+              <p className="font-medium mb-2">Order Total: £{orderDetails.total.toLocaleString()}</p>
               {orderDetails.paymentMethod === 'transfer' && (
                 <div className="mt-4 p-4 bg-white rounded-md">
                   <p className="font-medium mb-2">Bank Details:</p>

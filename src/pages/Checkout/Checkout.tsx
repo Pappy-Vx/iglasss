@@ -267,7 +267,7 @@ const Checkout = () => {
                     />
                     <span>{item.name} × {item.quantity}</span>
                   </div>
-                  <span>₦{(item.price * item.quantity).toLocaleString()}</span>
+                  <span>£{(item.price * item.quantity).toLocaleString()}</span>
                 </div>
               ))}
             </div>
@@ -275,7 +275,7 @@ const Checkout = () => {
             <div className="space-y-2 border-b pb-4 mb-4">
               <div className="flex justify-between">
                 <span>Subtotal</span>
-                <span>₦{subtotal.toLocaleString()}</span>
+                <span>£{subtotal.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
                 <span>Shipping</span>
@@ -285,7 +285,7 @@ const Checkout = () => {
 
             <div className="flex justify-between font-bold text-lg mb-6">
               <span>Total</span>
-              <span>₦{total.toLocaleString()}</span>
+              <span>£{total.toLocaleString()}</span>
             </div>
 
             {/* Payment Methods */}

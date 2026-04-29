@@ -66,11 +66,11 @@ const ProductCard = ({
           </h3>
           <div className="flex items-center gap-1.5">
             <span className="text-sm font-bold text-[#2F465E]">
-              ₦{price.toLocaleString()}
+              £{price.toLocaleString()}
             </span>
             {originalPrice && originalPrice > price && (
               <span className="text-xs text-gray-400 line-through">
-                ₦{originalPrice.toLocaleString()}
+                £{originalPrice.toLocaleString()}
               </span>
             )}
           </div>

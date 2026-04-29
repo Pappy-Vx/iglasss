@@ -18,7 +18,7 @@ const CartSummary = () => {
         <div className="flex justify-between items-center pb-4 border-b border-gray-200">
           <span className="text-gray-600">Subtotal</span>
           <span className="text-xl font-bold text-[#2F465E]">
-            ₦ {subtotal.toLocaleString()}
+            £ {subtotal.toLocaleString()}
           </span>
         </div>
 
@@ -27,7 +27,7 @@ const CartSummary = () => {
             to={routePath.CHECKOUT}
             className="block w-full bg-[#2F465E] text-white text-center py-3 px-4 rounded-full hover:bg-[#000000] transition-colors"
           >
-            Checkout (₦ {subtotal.toLocaleString()})
+            Checkout (£ {subtotal.toLocaleString()})
           </Link>
           
           <Link

@@ -19,9 +19,9 @@ const frameFeatures = [
 
 const lensOptions = [
   { id: 'clear', label: 'Clear (standard)', price: 0 },
-  { id: 'tinted', label: 'Tinted (+₦3,500)', price: 3500 },
-  { id: 'bluelight', label: 'Blue Light Filter (+₦5,000)', price: 5000 },
-  { id: 'photochromic', label: 'Photochromic (+₦8,000)', price: 8000 },
+  { id: 'tinted', label: 'Tinted (+£3,500)', price: 3500 },
+  { id: 'bluelight', label: 'Blue Light Filter (+£5,000)', price: 5000 },
+  { id: 'photochromic', label: 'Photochromic (+£8,000)', price: 8000 },
 ];
 
 const ProductDetails = () => {
@@ -136,11 +136,11 @@ const ProductDetails = () => {
           {/* Price */}
           <div className="flex items-baseline gap-3 mb-6">
             <span className="text-3xl font-black text-[#2F465E]">
-              ₦{product.new_price.toLocaleString()}
+              £{product.new_price.toLocaleString()}
             </span>
             {product.old_price > product.new_price && (
               <span className="text-lg text-gray-400 line-through">
-                ₦{product.old_price.toLocaleString()}
+                £{product.old_price.toLocaleString()}
               </span>
             )}
             {discount > 0 && (
@@ -150,9 +150,32 @@ const ProductDetails = () => {
             )}
           </div>
 
+          {/* Brand + type badges */}
+          {(product.brand || product.type) && (
+            <div className="flex items-center gap-2 mb-4">
+              {product.brand && (
+                <span className="text-xs font-semibold bg-[#2F465E]/8 text-[#2F465E] px-3 py-1 rounded-full">
+                  {product.brand}
+                </span>
+              )}
+              {product.type && (
+                <span className="text-xs font-medium bg-gray-100 text-gray-500 px-3 py-1 rounded-full">
+                  {product.type}
+                </span>
+              )}
+            </div>
+          )}
+
+          {/* Description */}
+          {product.description && (
+            <p className="text-sm text-gray-600 leading-relaxed mb-6 border-l-2 border-[#2F465E]/20 pl-4">
+              {product.description}
+            </p>
+          )}
+
           {/* AR Try-on CTA */}
           <Link
-            to={routePath.GlassTryOn}
+            to={`${routePath.GlassTryOn}?product=${product.id}`}
             className="flex items-center gap-2 w-full bg-[#EBF5FF] text-[#2F465E] hover:bg-[#2F465E] hover:text-white font-semibold px-4 py-3 rounded-xl mb-6 transition-all text-sm justify-center"
           >
             <FiCamera className="w-4 h-4" />
@@ -219,7 +242,7 @@ const ProductDetails = () => {
                 <FiPlus className="w-3.5 h-3.5 text-[#2F465E]" />
               </button>
               <span className="text-sm text-gray-400 ml-2">
-                Total: <strong className="text-[#2F465E]">₦{totalPrice.toLocaleString()}</strong>
+                Total: <strong className="text-[#2F465E]">£{totalPrice.toLocaleString()}</strong>
               </span>
             </div>
           </div>
@@ -235,7 +258,7 @@ const ProductDetails = () => {
           {/* Delivery info */}
           <div className="mt-6 space-y-3 border-t border-gray-100 pt-5">
             {[
-              { icon: <FiTruck className="w-4 h-4" />, title: 'Free Delivery', desc: 'Free shipping across Nigeria on orders above ₦10,000.' },
+              { icon: <FiTruck className="w-4 h-4" />, title: 'Free Delivery', desc: 'Free shipping across Nigeria on orders above £10,000.' },
               { icon: <FiRefreshCw className="w-4 h-4" />, title: '30-Day Returns', desc: 'Not the right fit? Return within 30 days for free.' },
               { icon: <FiShield className="w-4 h-4" />, title: '1-Year Warranty', desc: 'Frame defects covered for 12 months from purchase.' },
             ].map((info) => (

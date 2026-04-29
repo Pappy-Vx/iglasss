@@ -14,10 +14,10 @@ const SORT_OPTIONS = [
 
 const PRICE_RANGES = [
   { label: 'All Prices', min: 0, max: Infinity },
-  { label: 'Under ₦5,000', min: 0, max: 5000 },
-  { label: '₦5,000 – ₦15,000', min: 5000, max: 15000 },
-  { label: '₦15,000 – ₦30,000', min: 15000, max: 30000 },
-  { label: 'Over ₦30,000', min: 30000, max: Infinity },
+  { label: 'Under £5,000', min: 0, max: 5000 },
+  { label: '£5,000 – £15,000', min: 5000, max: 15000 },
+  { label: '£15,000 – £30,000', min: 15000, max: 30000 },
+  { label: 'Over £30,000', min: 30000, max: Infinity },
 ];
 
 const Shop = () => {

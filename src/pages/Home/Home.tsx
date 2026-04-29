@@ -12,7 +12,6 @@ import GlassScrollAnimation from './layout/GlassScrollAnimation';
 const Home = () => {
   const [glassStep, setGlassStep] = useState(0);
 
-  const bannerRef = useRef<HTMLDivElement>(null);
   const collectionsRef = useRef<HTMLDivElement>(null);
   const featuredRef = useRef<HTMLDivElement>(null);
   const selfieRef = useRef<HTMLDivElement>(null);
@@ -27,18 +26,20 @@ const Home = () => {
         return ref.current.getBoundingClientRect().top + window.scrollY;
       };
 
-      const bannerY = getAbsTop(bannerRef);
       const collectionsY = getAbsTop(collectionsRef);
       const featuredY = getAbsTop(featuredRef);
       const selfieY = getAbsTop(selfieRef);
 
+      // Step 3 triggers 40% into the featured section so glasses complete before AR section
+      const step3Y = featuredY + (selfieY - featuredY) * 0.4;
+
       if (midpoint >= selfieY) {
         setGlassStep(0);
-      } else if (midpoint >= featuredY) {
+      } else if (midpoint >= step3Y) {
         setGlassStep(3);
-      } else if (midpoint >= collectionsY) {
+      } else if (midpoint >= featuredY) {
         setGlassStep(2);
-      } else if (midpoint >= bannerY) {
+      } else if (midpoint >= collectionsY) {
         setGlassStep(1);
       } else {
         setGlassStep(0);
@@ -54,11 +55,11 @@ const Home = () => {
     <>
       <Header />
 
-      {glassStep > 0 && <GlassScrollAnimation step={glassStep} />}
+      <GlassScrollAnimation step={glassStep} />
 
       <main className="overflow-x-hidden">
         {/* Hero Banner */}
-        <div ref={bannerRef}>
+        <div>
           <Banner />
         </div>
 

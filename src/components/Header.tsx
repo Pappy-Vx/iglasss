@@ -139,7 +139,7 @@ const Header = () => {
                         <div>
                           <p className="text-sm font-medium text-gray-800 line-clamp-1">{product.name}</p>
                           <p className="text-xs text-[#2F465E] font-semibold">
-                            ₦{product.price?.toLocaleString()}
+                            £{product.price?.toLocaleString()}
                           </p>
                         </div>
                       </Link>

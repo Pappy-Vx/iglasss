@@ -56,7 +56,7 @@ const Banner = () => {
               {/* Background image */}
               <img
                 src={slide.img}
-                alt={slide.headline}
+                alt={slide.cta}
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
               {/* Subtle gradient only at the bottom for button readability */}

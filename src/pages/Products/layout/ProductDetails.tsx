@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { FiMinus, FiPlus, FiCamera, FiTruck, FiRefreshCw, FiShield } from 'react-icons/fi';
@@ -31,6 +31,60 @@ const ProductDetails = () => {
   const [selectedLens, setSelectedLens] = useState('clear');
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
+
+  // 3D inspect state
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [hasInspected, setHasInspected] = useState(false);
+  const isDraggingRef = useRef(false);
+  const dragStartRef = useRef<{ x: number; y: number; rx: number; ry: number } | null>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+
+  const startDrag = (clientX: number, clientY: number) => {
+    isDraggingRef.current = true;
+    setIsDragging(true);
+    setHasInspected(true);
+    dragStartRef.current = { x: clientX, y: clientY, rx: rotateX, ry: rotateY };
+  };
+
+  const resetView = () => {
+    setRotateX(0);
+    setRotateY(0);
+    setHasInspected(false);
+  };
+
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDraggingRef.current || !dragStartRef.current) return;
+      const dx = e.clientX - dragStartRef.current.x;
+      const dy = e.clientY - dragStartRef.current.y;
+      setRotateY(Math.max(-40, Math.min(40, dragStartRef.current.ry + dx * 0.28)));
+      setRotateX(Math.max(-20, Math.min(20, dragStartRef.current.rx - dy * 0.18)));
+    };
+    const onMouseUp = () => {
+      isDraggingRef.current = false;
+      dragStartRef.current = null;
+      setIsDragging(false);
+    };
+    const el = imageContainerRef.current;
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isDraggingRef.current || !dragStartRef.current) return;
+      e.preventDefault();
+      const dx = e.touches[0].clientX - dragStartRef.current.x;
+      const dy = e.touches[0].clientY - dragStartRef.current.y;
+      setRotateY(Math.max(-40, Math.min(40, dragStartRef.current.ry + dx * 0.28)));
+      setRotateX(Math.max(-20, Math.min(20, dragStartRef.current.rx - dy * 0.18)));
+    };
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    el?.addEventListener('touchmove', onTouchMove, { passive: false });
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+      el?.removeEventListener('touchmove', onTouchMove);
+    };
+  }, []);
 
   const product = glass_product.find((p) => p.id === Number(id));
 
@@ -79,6 +133,11 @@ const ProductDetails = () => {
 
   const mockImages = [product.image, product.image, product.image];
 
+  // Shine highlight position follows the drag angle
+  const shineX = 50 + (rotateY / 40) * 38;
+  const shineY = 50 - (rotateX / 20) * 28;
+  const shineOpacity = Math.min(1, (Math.abs(rotateY) + Math.abs(rotateX) * 2) / 15);
+
   return (
     <div className="max-w-[1100px] mx-auto px-4 py-8">
       {/* Breadcrumb */}
@@ -93,18 +152,61 @@ const ProductDetails = () => {
       <div className="flex flex-col md:flex-row gap-10">
         {/* Left: Images */}
         <div className="md:w-[45%]">
-          <div className="bg-gray-50 rounded-2xl overflow-hidden mb-3 aspect-square flex items-center justify-center">
+          {/* 3D inspect viewer */}
+          <div
+            ref={imageContainerRef}
+            className="bg-gray-50 rounded-2xl overflow-hidden mb-3 aspect-square flex items-center justify-center relative select-none"
+            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+            onMouseDown={(e) => { e.preventDefault(); startDrag(e.clientX, e.clientY); }}
+            onTouchStart={(e) => startDrag(e.touches[0].clientX, e.touches[0].clientY)}
+            onTouchEnd={() => { isDraggingRef.current = false; setIsDragging(false); }}
+          >
             <img
               src={mockImages[activeImage]}
               alt={product.name}
-              className="w-full h-full object-contain p-4"
+              className="w-full h-full object-contain p-4 pointer-events-none"
+              draggable={false}
+              style={{
+                transform: `perspective(900px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
+                transition: isDragging ? 'none' : 'transform 0.45s ease',
+              }}
             />
+
+            {/* Shimmer highlight that follows drag direction */}
+            <div
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              style={{
+                background: `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(255,255,255,0.28) 0%, transparent 58%)`,
+                opacity: shineOpacity,
+                transition: isDragging ? 'none' : 'opacity 0.45s ease',
+              }}
+            />
+
+            {/* Drag hint — shown before first interaction */}
+            {!hasInspected && (
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs text-gray-500 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm pointer-events-none">
+                <span className="text-base leading-none">⟵</span>
+                Drag to inspect
+                <span className="text-base leading-none">⟶</span>
+              </div>
+            )}
+
+            {/* Reset button — shown after first drag */}
+            {hasInspected && (rotateX !== 0 || rotateY !== 0) && (
+              <button
+                onClick={resetView}
+                className="absolute top-3 right-3 text-xs text-gray-600 bg-white/85 hover:bg-white px-2.5 py-1 rounded-full shadow-sm transition-colors"
+              >
+                Reset view
+              </button>
+            )}
           </div>
+
           <div className="flex gap-2">
             {mockImages.map((img, i) => (
               <button
                 key={i}
-                onClick={() => setActiveImage(i)}
+                onClick={() => { setActiveImage(i); resetView(); }}
                 className={`flex-1 aspect-square bg-gray-50 rounded-xl overflow-hidden border-2 transition-colors ${
                   activeImage === i ? 'border-[#2F465E]' : 'border-transparent'
                 }`}
